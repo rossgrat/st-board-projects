@@ -1,0 +1,21 @@
+#include <stdint.h>
+
+#define RCC_BASE            0x40021000
+#define GPIOB_BASE          0x48000400
+
+// RCC_AHB2ENR = Reset Clock Control, Advance High-Speed Bus 2, Enable Register
+#define RCC_AHB2ENR_OFFSET  0x4C
+#define RCC_AHB2ENR         (RCC_BASE + RCC_AHB2ENR_OFFSET)
+
+#define GPIOB_MODER_OFFSET  0x00
+#define GPIOB_MODER         (GPIOB_BASE + GPIOB_MODER_OFFSET)
+
+#define GPIOB_ODR_OFFSET    0x14
+#define GPIOB_ODR           (GPIOB_BASE + GPIOB_ODR_OFFSET)
+
+int main() {
+
+    // Enable Port B (Pins GPIOB1, GPIOB2, etc.)
+    volatile uint32_t* rcc_ahb2enr = (volatile uint32_t*)RCC_AHB2ENR;
+    *rcc_ahb2enr = *rcc_ahb2enr | (1 << 1);
+}
