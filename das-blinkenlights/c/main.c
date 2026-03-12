@@ -18,4 +18,11 @@ int main() {
     // Enable Port B (Pins GPIOB1, GPIOB2, etc.)
     volatile uint32_t* rcc_ahb2enr = (volatile uint32_t*)RCC_AHB2ENR;
     *rcc_ahb2enr = *rcc_ahb2enr | (1 << 1);
+
+    // Set Port B mode to output (01 = General Purpose Output)
+    volatile uint32_t* gpiob_moder = (volatile uint32_t*)GPIOB_MODER;
+    // Reset pin values
+    *gpiob_moder = *gpiob_moder & ~(3 << 14);
+    // Set output mode
+    *gpiob_moder = *gpiob_moder | (1 << 14);
 }

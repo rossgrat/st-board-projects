@@ -1,5 +1,7 @@
 # Das Blinkenlights — Bare Metal LED Blink on STM32L4R5ZI
 
+[Reference Manual](https://www.st.com/resource/en/reference_manual/rm0432-stm32l4-series-advanced-armbased-32bit-mcus-stmicroelectronics.pdf)
+
 ## Goal
 
 Blink an LED on the Nucleo-L4R5ZI by writing directly to hardware registers.
